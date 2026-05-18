@@ -462,6 +462,53 @@
     font-size: 52px; color: var(--gold);
     letter-spacing: 0.14em; margin-bottom: 8px;
   }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .hero-photo { height: 520px; }
+
+    .hero-inner { padding: 20px 20px 28px; }
+
+    .hero h1 { font-size: 52px; }
+
+    .hero-sub { font-size: 14px; margin-bottom: 20px; }
+
+    .logo-row img { height: 36px; }
+
+    .welcome { padding: 18px 20px; }
+
+    .strip-caption { padding: 8px 20px; }
+
+    .photo-strip { grid-template-columns: 1fr; height: auto; }
+    .photo-strip img { height: 160px; }
+
+    .main { padding: 0 16px 60px; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+
+    .medical-grid { grid-template-columns: 1fr; }
+
+    .parking-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .badges { justify-content: flex-start; }
+
+    .food-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .venue-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .schedule-row { flex-wrap: wrap; gap: 4px; }
+    .schedule-time { min-width: unset; }
+  }
 </style>
 </head>
 <body>
