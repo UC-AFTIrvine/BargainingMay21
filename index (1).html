@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To the Anthill! — UC-AFT Irvine Bargaining Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0064a4;
+    --blue-dark: #003366;
+    --blue-deep: #001f44;
+    --gold: #FFD200;
+    --gold-dark: #e6bc00;
+    --off-white: #f5f7fc;
+    --light-blue: #e4f0fb;
+    --text: #0d1b2a;
+    --muted: #4a5f78;
+    --card-bg: #ffffff;
+    --border: #d0dcea;
+    --green: #1a7a4a;
+    --green-light: #e6f5ee;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--blue-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    width: 100%; height: 360px;
+    object-fit: cover; object-position: center 25%;
+    display: block; opacity: 0.4;
+  }
+
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,20,50,0.2) 0%, rgba(0,20,50,0.65) 55%, rgba(0,20,50,0.98) 100%);
+  }
+
+  .hero-stripes {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(-55deg, transparent, transparent 60px, rgba(255,210,0,0.03) 60px, rgba(255,210,0,0.03) 120px);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 36px 52px 48px; z-index: 3;
+  }
+
+  .logo-row {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
+  }
+
+  .logo-row img { height: 46px; filter: brightness(0) invert(1); }
+
+  .logo-divider { width: 1.5px; height: 38px; background: rgba(255,210,0,0.5); }
+
+  .logo-label {
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); line-height: 1.4;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 78px; line-height: 0.9;
+    letter-spacing: 0.03em; color: white; margin-bottom: 10px;
+  }
+
+  .hero h1 .gold { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 16px; font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px; font-style: italic;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .chip {
+    background: rgba(255,255,255,0.09);
+    border: 1.5px solid rgba(255,210,0,0.42);
+    border-radius: 6px; padding: 7px 14px;
+    font-size: 13px; font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .chip em { color: var(--gold); font-style: normal; }
+
+  /* ── WELCOME ── */
+  .welcome {
+    background: var(--gold);
+    padding: 24px 52px;
+    position: relative; overflow: hidden;
+  }
+
+  .welcome::before {
+    content: 'ZOT!';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px; color: rgba(0,50,100,0.07);
+    position: absolute; right: 40px; top: 50%;
+    transform: translateY(-50%);
+    letter-spacing: 0.08em; pointer-events: none;
+  }
+
+  .welcome p {
+    font-size: 15px; color: var(--blue-deep);
+    max-width: 740px; font-weight: 700; line-height: 1.7;
+  }
+
+  /* ── PHOTO STRIP ── */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 4px; height: 200px; overflow: hidden;
+    background: var(--blue-deep);
+  }
+
+  .photo-strip img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .photo-strip img:hover { transform: scale(1.04); }
+
+  .strip-caption {
+    background: var(--blue-deep);
+    padding: 8px 52px;
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ── MAIN ── */
+  .main { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+
+  .section { padding-top: 56px; }
+
+  .section-head { display: flex; align-items: center; margin-bottom: 26px; }
+
+  .section-tab {
+    background: var(--blue); color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.08em;
+    padding: 8px 22px 6px;
+    border-radius: 6px 0 0 6px; white-space: nowrap;
+  }
+
+  .section-rule {
+    flex: 1; height: 3px;
+    background: linear-gradient(to right, var(--blue), transparent);
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* ── CONTACTS ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .contact-card {
+    background: var(--blue-deep);
+    border-radius: 10px; padding: 18px 22px;
+    color: white; position: relative; overflow: hidden;
+  }
+
+  .contact-card::after {
+    content: ''; position: absolute;
+    bottom: -12px; right: -12px;
+    width: 60px; height: 60px;
+    border-radius: 50%; background: rgba(255,210,0,0.1);
+  }
+
+  .contact-role {
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 4px;
+  }
+
+  .contact-name { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+  .contact-phone { font-size: 14px; color: rgba(255,255,255,0.65); font-weight: 600; }
+  .contact-email { font-size: 13px; color: rgba(255,210,0,0.8); font-weight: 600; margin-top: 2px; }
+
+  .placeholder {
+    background: #eef2f8;
+    border: 2px dashed #aabbd4;
+    border-radius: 10px; padding: 18px 22px;
+  }
+
+  .placeholder-role {
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: #8a9cb8; margin-bottom: 4px;
+  }
+
+  .placeholder-val {
+    font-size: 14px; color: #99aabf;
+    font-style: italic; font-weight: 600;
+  }
+
+  /* ── BOXES ── */
+  .info-box {
+    background: var(--light-blue);
+    border-left: 5px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 15px 20px; margin-bottom: 18px;
+    font-size: 14px; color: var(--blue-dark); font-weight: 600;
+    line-height: 1.65;
+  }
+
+  .info-box a { color: var(--blue); }
+
+  .warn-box {
+    background: #fffbe6;
+    border-left: 5px solid var(--gold-dark);
+    border-radius: 0 8px 8px 0;
+    padding: 15px 20px; margin-bottom: 18px;
+    font-size: 14px; color: #5a4200; font-weight: 600;
+  }
+
+  .fun-box {
+    background: var(--blue-deep);
+    border-radius: 10px; padding: 18px 22px;
+    color: white; font-size: 14px; font-weight: 700;
+    margin-top: 16px; display: flex; gap: 14px; align-items: flex-start;
+    line-height: 1.65;
+  }
+
+  .zot-accent {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; color: var(--gold);
+    letter-spacing: 0.06em; line-height: 1;
+    padding-top: 2px; white-space: nowrap;
+  }
+
+  /* ── SUB LABEL ── */
+  .sub-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 0.06em;
+    color: var(--blue); margin: 28px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+
+  /* ── PARKING ── */
+  .parking-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .parking-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 16px 20px;
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .parking-card:hover { border-color: var(--blue); transform: translateX(3px); }
+
+  .p-name { font-weight: 800; font-size: 15px; margin-bottom: 3px; color: var(--blue-dark); }
+  .p-detail { font-size: 13px; color: var(--muted); font-weight: 600; line-height: 1.55; }
+
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+
+  .badge {
+    font-size: 11px; font-weight: 800;
+    padding: 4px 10px; border-radius: 20px;
+    white-space: nowrap; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  .badge-blue  { background: var(--blue); color: white; }
+  .badge-gold  { background: var(--gold); color: var(--blue-deep); }
+  .badge-green { background: var(--green); color: white; }
+
+  /* ── DIRECTIONS ── */
+  .dir-block {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin-bottom: 14px;
+  }
+
+  .dir-title {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 12px;
+  }
+
+  .dir-block ol {
+    padding-left: 20px; font-size: 14px;
+    font-weight: 600; line-height: 2; color: var(--text);
+  }
+
+  /* ── VENUE CARDS ── */
+  .venue-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 14px;
+  }
+
+  .venue-photo {
+    width: 100%; height: 180px;
+    object-fit: cover; object-position: center 35%; display: block;
+  }
+
+  .venue-top {
+    background: var(--blue); padding: 14px 22px;
+    color: white; display: flex;
+    justify-content: space-between; align-items: center;
+  }
+
+  .venue-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.05em;
+    color: white; line-height: 1.1;
+  }
+
+  .venue-sub { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.62); margin-top: 2px; }
+
+  .venue-tag {
+    background: var(--gold); color: var(--blue-deep);
+    font-size: 11px; font-weight: 800;
+    padding: 4px 12px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap;
+  }
+
+  .venue-body {
+    padding: 16px 22px; font-size: 14px;
+    font-weight: 600; color: var(--muted); line-height: 1.7;
+  }
+
+  .venue-addr {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: var(--blue); font-size: 13px; font-weight: 700; margin-top: 8px;
+  }
+
+  /* ── SCHEDULE ── */
+  .schedule {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .schedule-row {
+    display: flex; align-items: center;
+    padding: 12px 20px; border-bottom: 1px solid var(--border);
+    font-size: 14px; font-weight: 700; gap: 16px;
+  }
+
+  .schedule-row:last-child { border-bottom: none; }
+
+  .schedule-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; color: var(--blue);
+    letter-spacing: 0.05em; min-width: 80px;
+  }
+
+  .schedule-event { color: var(--text); }
+  .schedule-event.muted { color: var(--muted); font-style: italic; }
+
+  /* ── FOOD ── */
+  .food-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .food-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 15px 20px;
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 12px;
+  }
+
+  .f-name { font-weight: 800; font-size: 15px; color: var(--blue-dark); margin-bottom: 2px; }
+  .f-detail { font-size: 13px; color: var(--muted); font-weight: 600; line-height: 1.55; }
+
+  .f-tag {
+    font-size: 10px; font-weight: 800;
+    padding: 4px 10px; border-radius: 20px;
+    white-space: nowrap; text-transform: uppercase;
+    letter-spacing: 0.05em; flex-shrink: 0;
+  }
+
+  .f-coffee { background: #fff5d6; color: #7a5200; }
+  .f-food   { background: var(--green-light); color: var(--green); }
+  .f-air    { background: var(--light-blue); color: var(--blue); }
+  .f-pub    { background: #f5e6ff; color: #5a1a8a; }
+
+  /* ── LOCAL FLAVOR ── */
+  .flavor-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .flavor-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 18px 22px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .flavor-title {
+    font-weight: 800; font-size: 15px;
+    color: var(--blue-dark); margin-bottom: 4px;
+  }
+
+  .flavor-body {
+    font-size: 14px; color: var(--muted);
+    font-weight: 600; line-height: 1.65;
+  }
+
+  /* ── MEDICAL ── */
+  .medical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .medical-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 18px 22px;
+  }
+
+  .med-type {
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px;
+  }
+
+  .med-type.urgent    { color: #c17a00; }
+  .med-type.emergency { color: #c0392b; }
+
+  .med-name { font-weight: 800; font-size: 15px; color: var(--text); margin-bottom: 6px; }
+  .med-detail { font-size: 13px; color: var(--muted); font-weight: 600; line-height: 1.65; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    margin-top: 52px; height: 2px;
+    background: linear-gradient(to right, var(--blue), var(--gold), transparent);
+    border-radius: 2px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--blue-deep);
+    color: rgba(255,255,255,0.45);
+    text-align: center; padding: 36px 24px;
+    font-size: 13px; font-weight: 700; margin-top: 64px;
+  }
+
+  .footer-logo {
+    display: block; height: 44px; margin: 0 auto 14px;
+    filter: brightness(0) invert(1); opacity: 0.8;
+  }
+
+  .footer .zot {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px; color: var(--gold);
+    letter-spacing: 0.14em; margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-photo"
+    src="https://ucaft.org/wp-content/uploads/2024/07/UCI_6-990x400.jpeg"
+    alt="UC-AFT members at UC Irvine bargaining session with fists raised in solidarity">
+  <div class="hero-overlay"></div>
+  <div class="hero-stripes"></div>
+  <div class="hero-inner">
+    <div class="logo-row">
+      <img src="https://ucaft.org/wp-content/uploads/2024/02/logo_clean.svg" alt="UC-AFT Logo">
+      <div class="logo-divider"></div>
+      <div class="logo-label">UC Irvine Chapter<br>Contract Negotiations</div>
+    </div>
+    <h1>TO THE<br><span class="gold">ANTHILL!</span></h1>
+    <p class="hero-sub">A field guide for the committed, the caffeinated, and the contractually motivated 🐜</p>
+    <div class="chips">
+      <div class="chip">📍 <em>HIB 135</em></div>
+      <div class="chip">🕘 Check-in <em>9:00 AM</em></div>
+      <div class="chip">⚖️ Bargaining <em>10 AM – 4 PM</em></div>
+      <div class="chip">🏁 Wrap <em>5:00 PM</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<div class="welcome">
+  <p>UCI is a beautiful campus. Aldrich Park is lovely. The weather is perfect. One of our lecturers doesn't know yet if they're teaching here next year. You are here to change that.</p>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <img src="https://ucaft.org/wp-content/uploads/2024/07/UCI_4-990x400.jpg"
+       alt="UC-AFT members holding banners over overpass at UCI reading No UCI Layoffs and Job Security">
+  <img src="https://ucaft.org/wp-content/uploads/2024/10/U18_Barg-Team_UCI_2019.10.8-990x400.jpg"
+       alt="UC-AFT Unit 18 bargaining team smiling at UCI in 2019">
+  <img src="https://ucaft.org/wp-content/uploads/2025/06/10-990x400.png"
+       alt="UC-AFT members rallying with Defend Labor and Job Security signs">
+</div>
+<div class="strip-caption">UC-AFT members at UC Irvine — at the table and in the streets</div>
+
+<div class="main">
+
+  <!-- CONTACTS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tab">📞 Who To Call</div>
+      <div class="section-rule"></div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);font-weight:700;margin-bottom:18px;">If anything goes sideways — wrong building, parking ticket, existential dread — call or text. We're here.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-role">Field Rep</div>
+        <div class="contact-name">Honora St. Clair</div>
+        <div class="contact-phone">(949) 375-4948</div>
+        <div class="contact-email">hstclair@ucaft.org</div>
+      </div>
+      <div class="placeholder">
+        <div class="placeholder-role">Unit 18 Co-Chair</div>
+        <div class="placeholder-val">Lora Mjolsness · [phone]</div>
+      </div>
+      <div class="placeholder">
+        <div class="placeholder-role">Organizing Chair</div>
+        <div class="placeholder-val">Lola Wirth · [phone]</div>
+      </div>
+      <div class="placeholder">
+        <div class="placeholder-role">[Role]</div>
+        <div class="placeholder-val">[Name] · [phone]</div>
+      </div>
+    </div>
+    <div class="fun-box">
+      <div class="zot-accent">🌺 FUN FACT</div>
+      <div>If you spot a California poppy blooming near Aldrich Park, that's the state flower doing its thing. Take a breath. You're surrounded by solidarity, doing important work. Now get back to the table.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GETTING HERE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tab">✈️ Getting Here</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="sub-label">Flying In</div>
+    <div class="parking-list">
+      <div class="parking-card">
+        <div>
+          <div class="p-name"><a href="https://www.ocair.com/" style="color:var(--blue-dark);text-decoration:none;">John Wayne Airport (SNA)</a></div>
+          <div class="p-detail">About 10–15 minutes from campus. Small, easy to navigate, and frankly a relief after LAX. We are coordinating airport pickups — if you need a ride, contact <strong>[placeholder]</strong>.</div>
+        </div>
+        <div class="badges"><span class="badge badge-gold">Preferred</span></div>
+      </div>
+      <div class="parking-card">
+        <div>
+          <div class="p-name"><a href="https://www.flylax.com/" style="color:var(--blue-dark);text-decoration:none;">Los Angeles International (LAX)</a></div>
+          <div class="p-detail">Also an option. Budget at least an hour for the drive down the 405 — more if you're arriving on a weekday afternoon.</div>
+        </div>
+        <div class="badges"><span class="badge badge-blue">Plan ahead</span></div>
+      </div>
+    </div>
+
+    <div class="sub-label">Taking the Train</div>
+    <div class="info-box">
+      <a href="https://www.metrolinktrains.com/stations/detail/station/irvine/">Irvine Station</a> is about 3 miles from campus and served by Amtrak and Metrolink. If you're coming in by train, contact <strong>[placeholder]</strong> and we'll arrange a ride.
+    </div>
+
+    <div class="sub-label">Driving In</div>
+    <div class="dir-block">
+      <div class="dir-title">From the 405 Freeway</div>
+      <ol>
+        <li>Take the <strong>Jamboree Rd</strong> exit and head south.</li>
+        <li>Turn right onto <strong>Campus Dr</strong>.</li>
+        <li>Turn right onto <strong>West Peltason Dr</strong> into UCI.</li>
+        <li>Follow signs to the <a href="https://map.uci.edu/?id=463#!m/265871" style="color:var(--blue);">Mesa Parking Structure</a>.</li>
+      </ol>
+    </div>
+    <div class="dir-block">
+      <div class="dir-title">From the 5 Freeway</div>
+      <ol>
+        <li>Take the <strong>University Dr</strong> exit and head west.</li>
+        <li>Turn left on <strong>Campus Dr</strong>.</li>
+        <li>Turn right onto <strong>West Peltason Dr</strong> into UCI.</li>
+        <li>Follow signs to the <a href="https://map.uci.edu/?id=463#!m/265871" style="color:var(--blue);">Mesa Parking Structure</a>.</li>
+      </ol>
+    </div>
+
+    <div class="sub-label">Parking</div>
+    <div class="info-box">
+      A valid permit is required any time you park on campus. Purchase at any kiosk, dispenser, or via <a href="https://parking.uci.edu/permits/visitor/">PARKbyPLATE</a>. Daily max is approximately <strong>$15</strong>. Disabled placards park free in any accessible space.
+    </div>
+    <div class="warn-box">
+      ⚡ <strong>EV charging</strong> available at Mesa Parking Structure and Student Center Parking Structure. EV fee applies on top of parking. Move your car after 4 hours of charging; re-parking doesn't cost extra.
+    </div>
+    <div class="parking-list">
+      <div class="parking-card">
+        <div>
+          <div class="p-name"><a href="https://map.uci.edu/?id=463#!m/265871" style="color:var(--blue-dark);text-decoration:none;">Mesa Parking Structure (MPS)</a></div>
+          <div class="p-detail">Closest to HIB · ~3 min walk · Pay at on-site dispenser or via PARKbyPLATE</div>
+        </div>
+        <div class="badges">
+          <span class="badge badge-gold">Closest</span>
+          <span class="badge badge-green">⚡ EV</span>
+        </div>
+      </div>
+      <div class="parking-card">
+        <div>
+          <div class="p-name">Lot 7</div>
+          <div class="p-detail">Near Humanities Gateway · Surface lot, limited spaces · Pay via PARKbyPLATE or on-site dispenser</div>
+        </div>
+        <div class="badges"><span class="badge badge-blue">Very close</span></div>
+      </div>
+      <div class="parking-card">
+        <div>
+          <div class="p-name"><a href="https://map.uci.edu/" style="color:var(--blue-dark);text-decoration:none;">Student Center Parking Structure</a></div>
+          <div class="p-detail">~8 min walk · Large structure, usually has availability</div>
+        </div>
+        <div class="badges"><span class="badge badge-green">⚡ EV</span></div>
+      </div>
+    </div>
+
+    <div class="sub-label">Getting to HIB from Your Car</div>
+    <div class="info-box">
+      HIB is not visible or accessible from the street — you'll walk in from Ring Road after parking. Use <a href="https://map.uci.edu/?id=463#!m/84304">this map link</a> to navigate to HIB on campus. Room 135 is on the ground floor. If you get turned around, call <strong>[placeholder]</strong>.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BARGAINING ROOM -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tab">🏛️ The Bargaining Room</div>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="venue-card">
+      <img class="venue-photo"
+        src="https://ucaft.org/wp-content/uploads/2024/07/UCI_6-990x400.jpeg"
+        alt="UC-AFT bargaining team at UCI with fists raised">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name">Humanities Instructional Building — Room 135</div>
+          <div class="venue-sub">Ground floor · W Peltason Dr, Irvine, CA 92697</div>
+        </div>
+        <div class="venue-tag">You Are Here</div>
+      </div>
+      <div class="venue-body">
+        Bargaining will take place in HIB 135, a classroom on the ground floor. We'll have snacks, coffee, and water available throughout the day. If you need anything, find <strong>[placeholder]</strong> or call <strong>[placeholder]</strong>.
+        <br><br>
+        <em style="color:#8a9cb8;">[Accessibility information placeholder — confirm elevator access, accessible restrooms, etc.]</em>
+      </div>
+    </div>
+
+    <div class="sub-label">Day of Schedule</div>
+    <div class="schedule">
+      <div class="schedule-row">
+        <div class="schedule-time">9:00 AM</div>
+        <div class="schedule-event">Check in</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">10:00 AM</div>
+        <div class="schedule-event">Bargaining begins</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">[TBD]</div>
+        <div class="schedule-event muted">Lunch break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">4:00 PM</div>
+        <div class="schedule-event">Bargaining ends</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">5:00 PM</div>
+        <div class="schedule-event">End of day</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BREAK TIME -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tab">☕ Break Time</div>
+      <div class="section-rule"></div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);font-weight:700;margin-bottom:20px;">When you need air, caffeine, or both — here's what's within walking distance of HIB.</p>
+
+    <div class="sub-label">Coffee &amp; Snacks</div>
+    <div class="food-list">
+      <div class="food-card">
+        <div>
+          <div class="f-name"><a href="https://www.arts.uci.edu/venue/green-room-cafe" style="color:var(--blue-dark);text-decoration:none;">Green Room Café</a></div>
+          <div class="f-detail">Claire Trevor School of the Arts, just across Ring Road · Fair trade coffee, pastries, sandwiches, wraps, and outdoor seating · Quiet and a bit of a hidden gem. Our top pick for a mid-morning break.</div>
+        </div>
+        <span class="f-tag f-coffee">Top Pick</span>
+      </div>
+      <div class="food-card">
+        <div>
+          <div class="f-name"><a href="https://www.peets.com/pages/store/u-c-irvine" style="color:var(--blue-dark);text-decoration:none;">Peet's Coffee</a></div>
+          <div class="f-detail">Just off Ring Road near Campus Dr · Strong coffee, seating, free Wi-Fi · Gets busy but worth it · Mon–Fri 6:00 AM – 7:00 PM</div>
+        </div>
+        <span class="f-tag f-coffee">Coffee</span>
+      </div>
+      <div class="food-card">
+        <div>
+          <div class="f-name">UCI Student Center</div>
+          <div class="f-detail">~8 min walk · Starbucks, Jamba Juice, Panda Express, Subway, Bento Sushi, Zot N Go Market for snacks and basics</div>
+        </div>
+        <span class="f-tag f-food">Food + Coffee</span>
+      </div>
+    </div>
+
+    <div class="sub-label">Fresh Air</div>
+    <div class="food-list">
+      <div class="food-card">
+        <div>
+          <div class="f-name"><a href="https://map.uci.edu/" style="color:var(--blue-dark);text-decoration:none;">Aldrich Park</a></div>
+          <div class="f-detail">Literally right there · Forested, shaded, eucalyptus-scented · If the table gets heavy, a lap around the park does wonders. Highly recommended.</div>
+        </div>
+        <span class="f-tag f-air">Fresh Air</span>
+      </div>
+    </div>
+
+    <div class="fun-box" style="margin-top:16px;">
+      <div class="zot-accent">🍺 PSA</div>
+      <div>UCI has a licensed on-campus pub. The Anthill Pub &amp; Grille is tucked into the Student Center Terrace. We're not saying anything. We're just saying it exists. In case the day calls for it.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- LOCAL FLAVOR -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tab">🐜 Things Worth Knowing</div>
+      <div class="section-rule"></div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);font-weight:700;margin-bottom:20px;">A brief orientation to the place you're fighting for.</p>
+
+    <div class="flavor-list">
+      <div class="flavor-card">
+        <div class="flavor-title">The mascot was a write-in vote.</div>
+        <div class="flavor-body">In 1965, students were given sensible options — Roadrunner, Seahawk, Unicorn. They ignored all of them, organized around an anteater from a comic strip, and won by 56%. Administration was not thrilled. Sound familiar? ZOT.</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-title">Ring Road is a circle.</div>
+        <div class="flavor-body">One full lap is exactly one mile. This sounds like trivia until you've been walking confidently in the wrong direction for ten minutes. Use the map.</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-title">There are tunnels under your feet.</div>
+        <div class="flavor-body">Steam pipes run beneath Ring Road to heat the buildings. Nobody knows what else is down there. This is not a metaphor for university administration, but you may draw your own conclusions.</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-title">Aldrich Park has ducks.</div>
+        <div class="flavor-body">They are not unionized but they are territorial. You have been warned.</div>
+      </div>
+      <div class="flavor-card">
+        <div class="flavor-title">Irvine is the most planned city in America.</div>
+        <div class="flavor-body">Literally master-planned from scratch. Every street, every tree, every cul-de-sac. It is very safe, very clean, and aggressively pleasant. Our lecturers deserve the same level of intentionality applied to their employment.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MEDICAL -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tab">🏥 Just in Case</div>
+      <div class="section-rule"></div>
+    </div>
+    <p style="font-size:14px;font-weight:700;color:var(--muted);margin-bottom:18px;">We hope you won't need this section. But it's here.</p>
+    <div class="medical-grid">
+      <div class="medical-card">
+        <div class="med-type urgent">Urgent Care</div>
+        <div class="med-name">UCI Health Urgent Care</div>
+        <div class="med-detail">
+          Multiple Irvine locations<br>
+          Hours vary — <a href="https://www.ucihealth.org" style="color:var(--blue);">ucihealth.org</a><br>
+          CVS &amp; Walgreens within 5 min of campus
+        </div>
+      </div>
+      <div class="medical-card">
+        <div class="med-type emergency">Emergency</div>
+        <div class="med-name">UCI Medical Center ER</div>
+        <div class="med-detail">
+          101 The City Dr South<br>
+          Orange, CA 92868<br>
+          📞 (714) 456-7890 · Open 24/7
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <img class="footer-logo"
+    src="https://ucaft.org/wp-content/uploads/2024/02/logo_clean.svg"
+    alt="UC-AFT Logo">
+  <span class="zot">ZOT ZOT ZOT!</span>
+  Made with solidarity by <strong style="color:var(--gold);">UC-AFT Irvine</strong><br>
+  Teaching Faculty &amp; Librarians United for a Better UC
+</div>
+
+</body>
+</html>
